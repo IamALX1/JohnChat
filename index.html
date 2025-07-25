@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDE AI Chat with John</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Essential styling for the ElevenLabs widget to fill its container */
+        /* Using !important to override any default inline styles from the widget */
+        elevenlabs-convai {
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important; /* Ensures it behaves like a block element */
+            /* Force widget to be static inside its parent container */
+            position: absolute !important; /* Position relative to the parent div */
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main container for the chat interface -->
+    <!-- Responsive sizing: w-full, max-w-4xl for width, h-[90vh] for mobile, h-[80vh] for medium, h-[70vh] for large -->
+    <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-xl p-6 md:p-10 flex flex-col items-center overflow-hidden
+                h-[90vh] md:h-[80vh] lg:h-[70vh]">
+
+        <!-- Header section -->
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
+            JDE AI Chat with John<span class="text-blue-600">Eugene</span>
+        </h1>
+
+        <!-- Container for the ElevenLabs widget -->
+        <!-- Added 'relative' class to make it a positioning context for the absolute child -->
+        <!-- Removed 'items-center' and 'justify-center' as absolute positioning handles placement -->
+        <div class="relative flex-grow w-full max-w-lg bg-gray-50 rounded-2xl shadow-inner overflow-hidden p-2">
+            <!-- The ElevenLabs Conversational AI widget -->
+            <elevenlabs-convai agent-id="agent_6301k10zahrtekabdjm39a4hv3sg"></elevenlabs-convai>
+        </div>
+
+        <!-- Optional: Footer/branding text -->
+        <p class="mt-6 text-sm text-gray-500 text-center">
+            Powered by ALX
+        </p>
+    </div>
+
+    <!-- ElevenLabs widget embed script -->
+    <!-- It's best practice to place external scripts at the end of the body for faster page loading -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>
